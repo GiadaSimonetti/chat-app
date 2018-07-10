@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Chatkit from '@pusher/chatkit'
 import MessageList from './Components/MessageList'
 // import SendMessageForm from './Components/SendMessageForm'
 // import RoomList from './Components/RoomList'
