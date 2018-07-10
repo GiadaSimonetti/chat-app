@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { ChatManager, TokenProvider } from '@pusher/chatkit'
 import Chatkit from '@pusher/chatkit'
 import MessageList from './Components/MessageList'
 // import SendMessageForm from './Components/SendMessageForm'
