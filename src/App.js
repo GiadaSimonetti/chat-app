@@ -18,6 +18,7 @@ class App extends Component {
       joinedRooms: []
     };
     this.sendMessage = this.sendMessage.bind(this);
+    this.subscribeToRoom = this.subscribeToRoom.bind(this);
   }
 
   componentDidMount() {
@@ -41,20 +42,23 @@ class App extends Component {
               })
             })
             .catch(err => console.log('error on joinableRooms: ', err));
-
-          this.currentUser.subscribeToRoom({
-              roomId: 11325949,
-              hooks: {
-                  onNewMessage: message => {
-                      console.log('message.text: ', message.text);
-                      this.setState({
-                        messages: [...this.state.messages, message]
-                      })
-                  }
-              }
-          })
+            this.subscribeToRoom();
       })
       .catch(err => console.log('error on connecting: ', err));
+  }
+
+  subscribeToRoom(){
+    this.currentUser.subscribeToRoom({
+        roomId: 11325949,
+        hooks: {
+            onNewMessage: message => {
+                console.log('message.text: ', message.text);
+                this.setState({
+                  messages: [...this.state.messages, message]
+                })
+            }
+        }
+    })
   }
 
   sendMessage(text){
