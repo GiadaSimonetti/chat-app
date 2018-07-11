@@ -8,7 +8,7 @@ class SendMessageForm extends React.Component {
       message: ''
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e){
@@ -21,7 +21,8 @@ class SendMessageForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     console.log(this.state.message)
-/** send off the message */
+    /** send off the message */
+    this.props.sendMessage(this.state.message)
   }
 
   render() {
