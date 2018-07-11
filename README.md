@@ -4,7 +4,6 @@ A simple ract chat app built by following the [Scrimba-Building a chat app with 
 
 
 ![image](./public/1.png?raw=true)
-![image](./public/2.png?raw=true)
 
 ## My approach
 
