@@ -19,6 +19,7 @@ class App extends Component {
     };
     this.sendMessage = this.sendMessage.bind(this);
     this.subscribeToRoom = this.subscribeToRoom.bind(this);
+    this.getRooms = this.getRooms.bind(this);
   }
 
   componentDidMount() {
@@ -34,14 +35,7 @@ class App extends Component {
       .then(currentUser => {
         this.currentUser = currentUser;
 
-        this.currentUser.getJoinableRooms()
-            .then(joinableRooms => {
-              this.setState({
-                  joinableRooms,
-                  joinedRooms: this.currentUser.rooms
-              })
-            })
-            .catch(err => console.log('error on joinableRooms: ', err));
+            this.getRooms();
             this.subscribeToRoom();
       })
       .catch(err => console.log('error on connecting: ', err));
@@ -55,10 +49,21 @@ class App extends Component {
                 console.log('message.text: ', message.text);
                 this.setState({
                   messages: [...this.state.messages, message]
-                })
+                });
             }
         }
-    })
+    });
+  }
+
+  getRooms(){
+    this.currentUser.getJoinableRooms()
+        .then(joinableRooms => {
+          this.setState({
+              joinableRooms,
+              joinedRooms: this.currentUser.rooms
+          })
+        })
+        .catch(err => console.log('error on joinableRooms: ', err));
   }
 
   sendMessage(text){
