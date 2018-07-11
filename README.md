@@ -3,7 +3,8 @@
 A simple ract chat app built by following the [Scrimba-Building a chat app with React.js and Chatkit](https://scrimba.com/playlist/pbNpTv).
 
 
-![image](./public/1.png?raw=true)
+![image](./public/images/1.png?raw=true)
+![image](./public/images/2.png?raw=true)
 
 ## My approach
 
