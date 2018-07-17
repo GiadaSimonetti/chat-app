@@ -4,9 +4,16 @@ import Message from './Message'
 
 class MessageList extends React.Component {
 
+  componentWillUpdate() {
+      const node = ReactDOM.findDOMNode(this)
+      this.shouldScrollToBottom = node.scrollTop + node.clientHeight  >= node.scrollHeight
+  }
+
   componentDidUpdate() {
-    const node = ReactDOM.findDOMNode(this)
-    node.scrollTop = node.scrollHeight
+      if (this.shouldScrollToBottom) {
+          const node = ReactDOM.findDOMNode(this)
+          node.scrollTop = node.scrollHeight
+      }
   }
 
   render() {
